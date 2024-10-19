@@ -1,0 +1,5 @@
+{
+    "OPEN_WEATHERMAP_DOMAIN" : "https://api.openweathermap.org",
+    "OPEN_WEATHERMAP_CITY_CLIMATE" : "data/2.5/weather?units=metric",
+    "OPEN_WEATHERMAP_LAT_LON" : "data/2.5/forecast?units=metric"
+}
