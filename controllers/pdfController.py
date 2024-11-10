@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request, current_app
 from services.getLatLong import get_lat_long
+from services.getWeatherLatLong import get_weather_long_lat
 
 pdf_controller = Blueprint('pdf_controller', __name__)
 
@@ -21,10 +22,8 @@ def getForcastDetails():
     # Get lat and lon 
     current_app.logger.info("fetching city latitude and longitute")
     lon,lat = get_lat_long(cityName=city_name)
-    print(lon)
-
-    return jsonify(
-        {
-            "message": "PDF Controller Works"
-        }
-    )
+    current_app.logger.info("fetching weather with latitude and longitute")
+    # get the weather details for upcoming days
+    weather_json = get_weather_long_lat(lon, lat)
+    # pass lon lat to get full weather json
+    return weather_json
