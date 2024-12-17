@@ -23,6 +23,7 @@ def get_lat_long(cityName):
             current_app.logger.info("Response 200 ... Fetched Long Lat")
             lon = loaded_response['coord']['lon']
             lat = loaded_response['coord']['lat']
+            current_app.logger.info("received lat and lon")
             return lon,lat
     except requests.exceptions.HTTPError as http_err:
             # Log the HTTP error

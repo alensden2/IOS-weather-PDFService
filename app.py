@@ -1,8 +1,10 @@
 from flask import Flask, request, jsonify
 from controllers.pdfController import pdf_controller
+from flask_cors import CORS
 import logging
 
 app = Flask(__name__)
+CORS(app)
 
 logging.basicConfig(
     filename="app.log",
@@ -19,4 +21,4 @@ def testPdfService():
 
 app.register_blueprint(pdf_controller)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True, port=5050)
